@@ -1,0 +1,43 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package counter_number;
+
+/**
+ *
+ * @author HAS
+ */
+import java.util.Scanner;
+public class main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int[] values = new int[200];
+        int input;
+        int count = 0;
+        System.out.print("Enter the integers between -100 and 100: ");
+        do
+        {
+            input = in.nextInt();
+            values[count] = input;
+            count += 1;
+        }
+        while (input != 0);
+
+        countOccurence(values);
+    }
+
+    public static void countOccurence(int[] list) {
+        for (int i = 1; i <= 200; i++) {
+            int count = 0;
+            for (int j = 0; j < list.length - 1; j++) {
+                if (list[j] == i)
+                    count += 1;
+            }
+            if (count != 0)
+                System.out.printf("%d occurs %d %s%n", 
+                    i, count, count > 1 ? "times" : "time");
+        } 
+    }
+}
